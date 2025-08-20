@@ -20,7 +20,7 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
 # Copy built JAR from build stage
-COPY --from=build /app/build/libs/*.jar app.jar
+COPY . ./
 
 # Run app
-ENTRYPOINT ["java","-jar","/app/app.jar"]
+CMD ["sh", "-c", "java -jar target/*.jar"]
